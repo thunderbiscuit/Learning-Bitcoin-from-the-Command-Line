@@ -1,0 +1,6 @@
+[book]
+authors = ["thunderbiscuit"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Learning Bitcoin from the Command Line"

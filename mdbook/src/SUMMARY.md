@@ -1,0 +1,23 @@
+# Summary
+
+- [Introduction](./01_0_Introduction.md)
+  - [Introducing Bitcoin](./01_1_Introducing_Bitcoin.md)
+- [Setting Up a Bitcoin Core VPS](./02_0_Setting_Up_a_Bitcoin-Core_VPS.md)
+    - [With Bitcoin Standup](./02_1_Setting_Up_a_Bitcoin-Core_VPS_with_StackScript.md)
+    - [Via Other Means](02_2_Setting_Up_Bitcoin_Core_Other.md)
+- [Understanding your Bitcoin Setup](03_0_Understanding_Your_Bitcoin_Setup.md)
+  - [Verifying your Bitcoin Setup](03_1_Verifying_Your_Bitcoin_Setup.md)
+  - [Knowing your Bitcoin Setup](03_2_Knowing_Your_Bitcoin_Setup.md)
+  - [_Interlude:_ Using Command-Line Variables](03_3__Interlude_Using_Command-Line_Variables.md)
+  - [Setting Up Your Wallet](03_3_Setting_Up_Your_Wallet.md)
+  - [Receiving a Transaction](03_4_Receiving_a_Transaction.md)
+  - [Understanding the Descriptor](03_5_Understanding_the_Descriptor.md)
+- [Sending Bitcoin Transactions](04_0_Sending_Bitcoin_Transactions.md)
+  - [Sending Coins the Easy Way](04_1_Sending_Coins_The_Easy_Way.md)
+  - [_Interlude:_ Using JQ](04_2__Interlude_Using_JQ.md)
+  - [Creating a Raw Transaction](04_2_Creating_a_Raw_Transaction.md)
+  - [Creating a Raw Transaction With Named Arguments](04_3_Creating_a_Raw_Transaction_with_Named_Arguments.md)
+  - [_Interlude:_ Using Curl](04_4__Interlude_Using_Curl.md)
+  - [Sending Coins with Raw Transactions](04_4_Sending_Coins_with_a_Raw_Transaction.md)]
+  - [Sending Coins with Automated Raw Transactions](./04_5_Sending_Coins_with_Automated_Raw_Transactions.md)
+  - [Creating a Segwit Transaction](04_6_Creating_a_Segwit_Transaction.md)
