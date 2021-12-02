@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Sending Coins with Raw Transactions - Learning Bitcoin from the Command Line</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="01_0_Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01_1_Introducing_Bitcoin.html"><strong aria-hidden="true">1.1.</strong> Introducing Bitcoin</a></li></ol></li><li class="chapter-item expanded "><a href="02_0_Setting_Up_a_Bitcoin-Core_VPS.html"><strong aria-hidden="true">2.</strong> Setting Up a Bitcoin Core VPS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_1_Setting_Up_a_Bitcoin-Core_VPS_with_StackScript.html"><strong aria-hidden="true">2.1.</strong> With Bitcoin Standup</a></li><li class="chapter-item expanded "><a href="02_2_Setting_Up_Bitcoin_Core_Other.html"><strong aria-hidden="true">2.2.</strong> Via Other Means</a></li></ol></li><li class="chapter-item expanded "><a href="03_0_Understanding_Your_Bitcoin_Setup.html"><strong aria-hidden="true">3.</strong> Understanding your Bitcoin Setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="03_1_Verifying_Your_Bitcoin_Setup.html"><strong aria-hidden="true">3.1.</strong> Verifying your Bitcoin Setup</a></li><li class="chapter-item expanded "><a href="03_2_Knowing_Your_Bitcoin_Setup.html"><strong aria-hidden="true">3.2.</strong> Knowing your Bitcoin Setup</a></li><li class="chapter-item expanded "><a href="03_3__Interlude_Using_Command-Line_Variables.html"><strong aria-hidden="true">3.3.</strong> Interlude: Using Command-Line Variables</a></li><li class="chapter-item expanded "><a href="03_3_Setting_Up_Your_Wallet.html"><strong aria-hidden="true">3.4.</strong> Setting Up Your Wallet</a></li><li class="chapter-item expanded "><a href="03_4_Receiving_a_Transaction.html"><strong aria-hidden="true">3.5.</strong> Receiving a Transaction</a></li><li class="chapter-item expanded "><a href="03_5_Understanding_the_Descriptor.html"><strong aria-hidden="true">3.6.</strong> Understanding the Descriptor</a></li></ol></li><li class="chapter-item expanded "><a href="04_0_Sending_Bitcoin_Transactions.html"><strong aria-hidden="true">4.</strong> Sending Bitcoin Transactions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04_1_Sending_Coins_The_Easy_Way.html"><strong aria-hidden="true">4.1.</strong> Sending Coins the Easy Way</a></li><li class="chapter-item expanded "><a href="04_2__Interlude_Using_JQ.html"><strong aria-hidden="true">4.2.</strong> Interlude: Using JQ</a></li><li class="chapter-item expanded "><a href="04_2_Creating_a_Raw_Transaction.html"><strong aria-hidden="true">4.3.</strong> Creating a Raw Transaction</a></li><li class="chapter-item expanded "><a href="04_3_Creating_a_Raw_Transaction_with_Named_Arguments.html"><strong aria-hidden="true">4.4.</strong> Creating a Raw Transaction With Named Arguments</a></li><li class="chapter-item expanded "><a href="04_4__Interlude_Using_Curl.html"><strong aria-hidden="true">4.5.</strong> Interlude: Using Curl</a></li><li class="chapter-item expanded "><a href="04_4_Sending_Coins_with_a_Raw_Transaction.html" class="active"><strong aria-hidden="true">4.6.</strong> Sending Coins with Raw Transactions</a></li><li class="chapter-item expanded "><a href="04_5_Sending_Coins_with_Automated_Raw_Transactions.html"><strong aria-hidden="true">4.7.</strong> Sending Coins with Automated Raw Transactions</a></li><li class="chapter-item expanded "><a href="04_6_Creating_a_Segwit_Transaction.html"><strong aria-hidden="true">4.8.</strong> Creating a Segwit Transaction</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Bitcoin from the Command Line</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="44-sending-coins-with-raw-transactions"><a class="header" href="#44-sending-coins-with-raw-transactions">4.4: Sending Coins with Raw Transactions</a></h1>
+<p>As noted at the start of this chapter, the <code>bitcoin-cli</code> interface offers three major ways to send coins. <a href="04_1_Sending_Coins_The_Easy_Way.html">§4.1</a> talked about sending them the first way, using the <code>sendtoaddress</code> command. Since then, we've been building details on how to send coins a second way, with raw transactions. <a href="04_2_Creating_a_Raw_Transaction.html">§4.2</a> taught how to create a raw transaction, an <a href="04_2__Interlude_Using_JQ.html">Interlude</a> explained JQ, and <a href="04_3_Creating_a_Raw_Transaction_with_Named_Arguments.html">§4.3</a> demonstrated named arguments.</p>
+<p>We can now put those together and actually send funds using a raw transaction.</p>
+<h2 id="create-a-change-address"><a class="header" href="#create-a-change-address">Create a Change Address</a></h2>
+<p>Our sample raw transaction in section §4.2 was very simplistic: we sent the entirety of a UTXO to a new address. More frequently, you'll want to send someone an amount of money that doesn't match a UTXO. But, you'll recall that the excess money from a UTXO that's not sent to your recipient just becomes a transaction fee. So, how do you send someone just part of a UTXO, while keeping the rest for yourself?</p>
+<p>The solution is to <em>send</em> the rest of the funds to a second address, a change address that you've created in your wallet specifically to receive them:</p>
+<pre><code>$ changeaddress=$(bitcoin-cli getrawchangeaddress legacy)
+$ echo $changeaddress
+mk9ry5VVy8mrA8SygxSQQUDNSSXyGFot6h
+</code></pre>
+<p>Note that this uses a new function: <code>getrawchangeaddress</code>. It's largely the same as <code>getnewaddress</code> but is optimized for use as a change address in a raw transaction, so it doesn't do things like make entries in your address book. We again selected the <code>legacy</code> address, instead of going with the default of <code>bech32</code>, simply for consistency. This is a situation where it would have been entirely safe to generate a default Bech32 address, just by using <code>bitcoin-cli getrawchangeaddress</code>, because it would being sent and received by you on your Bitcoin Core node which fully supports this. But, hobgoblins; we'll shift this over to Bech32 as well in <a href="04_6_Creating_a_Segwit_Transaction.html">§4.6</a>.</p>
+<p>You now have an additional address inside your wallet, so that you can receive change from a UTXO! In order to use it, you'll need to create a raw transaction with two outputs.</p>
+<h2 id="pick-sufficient-utxos"><a class="header" href="#pick-sufficient-utxos">Pick Sufficient UTXOs</a></h2>
+<p>Our sample raw transaction was simple in another way: it assumed that there was enough money in a single UTXO to cover the transaction. Often this will be the case, but sometimes you'll want to create transactions that spends more money than you have in a single UTXO. To do so, you must create a raw transaction with two (or more) inputs.</p>
+<h2 id="write-a-real-raw-transaction"><a class="header" href="#write-a-real-raw-transaction">Write a Real Raw Transaction</a></h2>
+<p>To summarize: creating a real raw transaction to send coins will sometimes require multiple inputs and will almost always require multiple outputs, one of which is a change address. We'll be creating that sort of more realistic transaction here, in a new example that shows a real-life example of sending funds via Bitcoin's second methodology, raw transactions.</p>
+<p>We're going to use our 0th and 2nd UTXOs:</p>
+<pre><code>$ bitcoin-cli listunspent
+[
+[
+  {
+    &quot;txid&quot;: &quot;0619fecf6b2668fab1308fbd7b291ac210932602a6ac6b8cc11c7ae22c43701e&quot;,
+    &quot;vout&quot;: 1,
+    &quot;address&quot;: &quot;mwJL7cRiW2bUnY81r1thSu3D4jtMmwyU6d&quot;,
+    &quot;label&quot;: &quot;&quot;,
+    &quot;scriptPubKey&quot;: &quot;76a914ad1ed1c5971b2308f89c1362d4705d020a40e8e788ac&quot;,
+    &quot;amount&quot;: 0.00899999,
+    &quot;confirmations&quot;: 1,
+    &quot;spendable&quot;: true,
+    &quot;solvable&quot;: true,
+    &quot;desc&quot;: &quot;pkh([d6043800/0'/0'/4']03eae28c93035f95a620dd96e1822f2a96e0357263fa1f87606a5254d5b9e6698f)#wwnfx2sp&quot;,
+    &quot;safe&quot;: true
+  },
+  {
+    &quot;txid&quot;: &quot;91261eafae15ea53dedbea7c1db748c52bbc04a85859ffd0d839bda1421fda4c&quot;,
+    &quot;vout&quot;: 0,
+    &quot;address&quot;: &quot;mjehC2KHzXcBDcwTd4LhZ2GzyzrZ3Kd3ff&quot;,
+    &quot;label&quot;: &quot;&quot;,
+    &quot;scriptPubKey&quot;: &quot;76a9142d573900aa357a38afd741fbf24b075d263ea6e088ac&quot;,
+    &quot;amount&quot;: 0.00022000,
+    &quot;confirmations&quot;: 15,
+    &quot;spendable&quot;: true,
+    &quot;solvable&quot;: true,
+    &quot;desc&quot;: &quot;pkh([d6043800/0'/0'/3']0278608b54b8fb0d8379d3823d31f03a7c6ab0adffb07dd3811819fdfc34f8c132)#nhjc3f8y&quot;,
+    &quot;safe&quot;: true
+  },  
+  {
+    &quot;txid&quot;: &quot;0df23a9dba49e822bbc558f15516f33021a64a5c2e48962cec541e0bcc79854d&quot;,
+    &quot;vout&quot;: 0,
+    &quot;address&quot;: &quot;mwJL7cRiW2bUnY81r1thSu3D4jtMmwyU6d&quot;,
+    &quot;label&quot;: &quot;&quot;,
+    &quot;scriptPubKey&quot;: &quot;76a914ad1ed1c5971b2308f89c1362d4705d020a40e8e788ac&quot;,
+    &quot;amount&quot;: 0.00100000,
+    &quot;confirmations&quot;: 1,
+    &quot;spendable&quot;: true,
+    &quot;solvable&quot;: true,
+    &quot;desc&quot;: &quot;pkh([d6043800/0'/0'/4']03eae28c93035f95a620dd96e1822f2a96e0357263fa1f87606a5254d5b9e6698f)#wwnfx2sp&quot;,
+    &quot;safe&quot;: true
+   }
+]
+
+</code></pre>
+<p>In our example, we're going to send .009 BTC, which is (barely) larger than either of our UTXOs. This requires combining them, then using our change address to retrieve the unspent funds.</p>
+<h3 id="set-up-your-variables"><a class="header" href="#set-up-your-variables">Set Up Your Variables</a></h3>
+<p>We already have <code>$changeaddress</code> and <code>$recipient</code> variables from previous examples:</p>
+<pre><code>$ echo $changeaddress
+mk9ry5VVy8mrA8SygxSQQUDNSSXyGFot6h
+$ echo $recipient
+n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi
+</code></pre>
+<p>We also need to record the txid and vout for each of our two UTXOs. Having identified the UTXOs that we want to spend, we can use our JQ techniques to make sure accessing them is error free:</p>
+<pre><code>$ utxo_txid_1=$(bitcoin-cli listunspent | jq -r '.[0] | .txid')
+$ utxo_vout_1=$(bitcoin-cli listunspent | jq -r '.[0] | .vout')
+$ utxo_txid_2=$(bitcoin-cli listunspent | jq -r '.[2] | .txid')
+$ utxo_vout_2=$(bitcoin-cli listunspent | jq -r '.[2] | .vout')
+</code></pre>
+<h3 id="write-the-transaction"><a class="header" href="#write-the-transaction">Write the Transaction</a></h3>
+<p>Writing the actual raw transaction is surprisingly simple. All you need to do is include an additional, comma-separated JSON object in the JSON array of inputs and an additional, comma-separated key-value pair in the JSON object of outputs.</p>
+<p>Here's the example. Note the multiple inputs after the <code>inputs</code> arg and the multiple outputs after the <code>outputs</code> arg.</p>
+<pre><code>$ rawtxhex2=$(bitcoin-cli -named createrawtransaction inputs='''[ { &quot;txid&quot;: &quot;'$utxo_txid_1'&quot;, &quot;vout&quot;: '$utxo_vout_1' }, { &quot;txid&quot;: &quot;'$utxo_txid_2'&quot;, &quot;vout&quot;: '$utxo_vout_2' } ]''' outputs='''{ &quot;'$recipient'&quot;: 0.009, &quot;'$changeaddress'&quot;: 0.0009 }''')
+</code></pre>
+<p>We were <em>very</em> careful figuring out our money math. These two UTXOs contain 0.00999999 BTC. After sending 0.009 BTC, we'll have .00099999 BTC left. We chose .00009999 BTC the transaction fee. To accommodate that fee, we set our change to .0009 BTC. If we'd messed up our math and instead set our change to .00009 BTC, that additional BTC would be lost to the miners! If we'd forgot to make change at all, then the whole excess would have disappeared. So, again, <em>be careful</em>. </p>
+<p>Fortunately, we can triple-check with the <code>btctxfee</code> alias from the JQ Interlude:</p>
+<pre><code>$ ./txfee-calc.sh $rawtxhex2
+.00009999
+</code></pre>
+<h3 id="finish-it-up"><a class="header" href="#finish-it-up">Finish It Up</a></h3>
+<p>You can now sign, seal, and deliver your transaction, and it's yours (and the faucet's):</p>
+<pre><code>$ signedtx2=$(bitcoin-cli -named signrawtransactionwithwallet hexstring=$rawtxhex2 | jq -r '.hex')
+$ bitcoin-cli -named sendrawtransaction hexstring=$signedtx2
+e7071092dee0b2ae584bf6c1ee3c22164304e3a17feea7a32c22db5603cd6a0d
+</code></pre>
+<h3 id="wait"><a class="header" href="#wait">Wait</a></h3>
+<p>As usual, your money will be in flux for a while: the change will be unavailable until the transaction actually gets confirmed and a new UTXO is given to you.</p>
+<p>But, in 10 minutes or less (probably), you'll have your remaining money back and fully spendable again. For now, we're still waiting:</p>
+<pre><code>$ bitcoin-cli listunspent
+[
+  {
+    &quot;txid&quot;: &quot;91261eafae15ea53dedbea7c1db748c52bbc04a85859ffd0d839bda1421fda4c&quot;,
+    &quot;vout&quot;: 0,
+    &quot;address&quot;: &quot;mjehC2KHzXcBDcwTd4LhZ2GzyzrZ3Kd3ff&quot;,
+    &quot;label&quot;: &quot;&quot;,
+    &quot;scriptPubKey&quot;: &quot;76a9142d573900aa357a38afd741fbf24b075d263ea6e088ac&quot;,
+    &quot;amount&quot;: 0.00022000,
+    &quot;confirmations&quot;: 15,
+    &quot;spendable&quot;: true,
+    &quot;solvable&quot;: true,
+    &quot;desc&quot;: &quot;pkh([d6043800/0'/0'/3']0278608b54b8fb0d8379d3823d31f03a7c6ab0adffb07dd3811819fdfc34f8c132)#nhjc3f8y&quot;,
+    &quot;safe&quot;: true
+  }
+]
+</code></pre>
+<p>And the change will eventuall arrive:</p>
+<pre><code>[
+  {
+    &quot;txid&quot;: &quot;e7071092dee0b2ae584bf6c1ee3c22164304e3a17feea7a32c22db5603cd6a0d&quot;,
+    &quot;vout&quot;: 1,
+    &quot;address&quot;: &quot;mk9ry5VVy8mrA8SygxSQQUDNSSXyGFot6h&quot;,
+    &quot;scriptPubKey&quot;: &quot;76a91432db726320e4ad170c9c1ee83cd4d8a243c3435988ac&quot;,
+    &quot;amount&quot;: 0.00090000,
+    &quot;confirmations&quot;: 1,
+    &quot;spendable&quot;: true,
+    &quot;solvable&quot;: true,
+    &quot;desc&quot;: &quot;pkh([d6043800/0'/1'/2']02881697d252d8bf181d08c58de1f02aec088cd2d468fc5fd888c6e39909f7fabf)#p6k7dptk&quot;,
+    &quot;safe&quot;: true
+  },
+  {
+    &quot;txid&quot;: &quot;91261eafae15ea53dedbea7c1db748c52bbc04a85859ffd0d839bda1421fda4c&quot;,
+    &quot;vout&quot;: 0,
+    &quot;address&quot;: &quot;mjehC2KHzXcBDcwTd4LhZ2GzyzrZ3Kd3ff&quot;,
+    &quot;label&quot;: &quot;&quot;,
+    &quot;scriptPubKey&quot;: &quot;76a9142d573900aa357a38afd741fbf24b075d263ea6e088ac&quot;,
+    &quot;amount&quot;: 0.00022000,
+    &quot;confirmations&quot;: 16,
+    &quot;spendable&quot;: true,
+    &quot;solvable&quot;: true,
+    &quot;desc&quot;: &quot;pkh([d6043800/0'/0'/3']0278608b54b8fb0d8379d3823d31f03a7c6ab0adffb07dd3811819fdfc34f8c132)#nhjc3f8y&quot;,
+    &quot;safe&quot;: true
+  }
+]
+</code></pre>
+<p>This also might be a good time to revisit a blockchain explorer, so that you can see more intuitively how the inputs, outputs, and transaction fee are all laid out: <a href="https://live.blockcypher.com/btc-testnet/tx/e7071092dee0b2ae584bf6c1ee3c22164304e3a17feea7a32c22db5603cd6a0d/">e7071092dee0b2ae584bf6c1ee3c22164304e3a17feea7a32c22db5603cd6a0d</a>.</p>
+<h2 id="summary-sending-coins-with-raw-transactions"><a class="header" href="#summary-sending-coins-with-raw-transactions">Summary: Sending Coins with Raw Transactions</a></h2>
+<p>To send coins with raw transactions, you need to create a raw transaction with one or more inputs (to have sufficient funds) and one or more outputs (to retrieve change). Then, you can follow your normal procedure of using <code>createrawtransaction</code> with named arguments and JQ, as laid out in previous sections.</p>
+<blockquote>
+<p>:fire: <em><strong>What is the power of sending coins with raw transactions?</strong></em></p>
+</blockquote>
+<blockquote>
+<p><em>The advantages.</em> It gives you the best control. If your goal is to write a more intricate Bitcoin script or program, you'll probably use raw transactions so that you know exactly what's going on. This is also the <em>safest</em> situation to use raw transactions, because you can programmatically ensure that you don't make mistakes.</p>
+</blockquote>
+<blockquote>
+<p><em>The disadvantages.</em> It's easy to lose money. There are no warnings, no safeguards, and no programmatic backstops unless you write them. It's also arcane. The formatting is obnoxious, even using the easy-to-use <code>bitcoin-cli</code> interface, and you have to do a lot of lookup and calculation by hand.</p>
+</blockquote>
+<h2 id="whats-next"><a class="header" href="#whats-next">What's Next?</a></h2>
+<p>See another alternative way to input commands with <a href="04_4__Interlude_Using_Curl.html">Interlude: Using Curl</a>.</p>
+<p>Or, you prefer to skip what's frankly a digression, learn one more way to &quot;Send Bitcoin Transactions&quot; with <a href="04_5_Sending_Coins_with_Automated_Raw_Transactions.html">§4.5 Sending Coins with Automated Raw Transactions</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="04_4__Interlude_Using_Curl.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="04_5_Sending_Coins_with_Automated_Raw_Transactions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="04_4__Interlude_Using_Curl.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="04_5_Sending_Coins_with_Automated_Raw_Transactions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

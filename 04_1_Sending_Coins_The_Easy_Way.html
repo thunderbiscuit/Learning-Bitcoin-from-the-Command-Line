@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Sending Coins the Easy Way - Learning Bitcoin from the Command Line</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="01_0_Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01_1_Introducing_Bitcoin.html"><strong aria-hidden="true">1.1.</strong> Introducing Bitcoin</a></li></ol></li><li class="chapter-item expanded "><a href="02_0_Setting_Up_a_Bitcoin-Core_VPS.html"><strong aria-hidden="true">2.</strong> Setting Up a Bitcoin Core VPS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_1_Setting_Up_a_Bitcoin-Core_VPS_with_StackScript.html"><strong aria-hidden="true">2.1.</strong> With Bitcoin Standup</a></li><li class="chapter-item expanded "><a href="02_2_Setting_Up_Bitcoin_Core_Other.html"><strong aria-hidden="true">2.2.</strong> Via Other Means</a></li></ol></li><li class="chapter-item expanded "><a href="03_0_Understanding_Your_Bitcoin_Setup.html"><strong aria-hidden="true">3.</strong> Understanding your Bitcoin Setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="03_1_Verifying_Your_Bitcoin_Setup.html"><strong aria-hidden="true">3.1.</strong> Verifying your Bitcoin Setup</a></li><li class="chapter-item expanded "><a href="03_2_Knowing_Your_Bitcoin_Setup.html"><strong aria-hidden="true">3.2.</strong> Knowing your Bitcoin Setup</a></li><li class="chapter-item expanded "><a href="03_3__Interlude_Using_Command-Line_Variables.html"><strong aria-hidden="true">3.3.</strong> Interlude: Using Command-Line Variables</a></li><li class="chapter-item expanded "><a href="03_3_Setting_Up_Your_Wallet.html"><strong aria-hidden="true">3.4.</strong> Setting Up Your Wallet</a></li><li class="chapter-item expanded "><a href="03_4_Receiving_a_Transaction.html"><strong aria-hidden="true">3.5.</strong> Receiving a Transaction</a></li><li class="chapter-item expanded "><a href="03_5_Understanding_the_Descriptor.html"><strong aria-hidden="true">3.6.</strong> Understanding the Descriptor</a></li></ol></li><li class="chapter-item expanded "><a href="04_0_Sending_Bitcoin_Transactions.html"><strong aria-hidden="true">4.</strong> Sending Bitcoin Transactions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04_1_Sending_Coins_The_Easy_Way.html" class="active"><strong aria-hidden="true">4.1.</strong> Sending Coins the Easy Way</a></li><li class="chapter-item expanded "><a href="04_2__Interlude_Using_JQ.html"><strong aria-hidden="true">4.2.</strong> Interlude: Using JQ</a></li><li class="chapter-item expanded "><a href="04_2_Creating_a_Raw_Transaction.html"><strong aria-hidden="true">4.3.</strong> Creating a Raw Transaction</a></li><li class="chapter-item expanded "><a href="04_3_Creating_a_Raw_Transaction_with_Named_Arguments.html"><strong aria-hidden="true">4.4.</strong> Creating a Raw Transaction With Named Arguments</a></li><li class="chapter-item expanded "><a href="04_4__Interlude_Using_Curl.html"><strong aria-hidden="true">4.5.</strong> Interlude: Using Curl</a></li><li class="chapter-item expanded "><a href="04_4_Sending_Coins_with_a_Raw_Transaction.html"><strong aria-hidden="true">4.6.</strong> Sending Coins with Raw Transactions</a></li><li class="chapter-item expanded "><a href="04_5_Sending_Coins_with_Automated_Raw_Transactions.html"><strong aria-hidden="true">4.7.</strong> Sending Coins with Automated Raw Transactions</a></li><li class="chapter-item expanded "><a href="04_6_Creating_a_Segwit_Transaction.html"><strong aria-hidden="true">4.8.</strong> Creating a Segwit Transaction</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Bitcoin from the Command Line</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="41-sending-coins-the-easy-way"><a class="header" href="#41-sending-coins-the-easy-way">4.1: Sending Coins the Easy Way</a></h1>
+<p>The <code>bitcoin-cli</code> offers three major ways to send coins: as a simple command; as a raw transaction; and as a raw transaction with calculation. Each has their own advantages and disadvantages. This first method for sending coins is also the simplest.</p>
+<h2 id="set-your-transaction-fee"><a class="header" href="#set-your-transaction-fee">Set Your Transaction Fee</a></h2>
+<p>Before you send any money on the Bitcoin network, you should think about what transaction fees you're going to pay.</p>
+<blockquote>
+<p>:book: <em><strong>What is a transaction fee?</strong></em> There's no such thing as a free lunch. Miners incorporate transactions into blocks because they're paid to do so. Not only do they get paid by the network for making the block, but they also get paid by transactors for including their transactions. If you don't pay a fee, your transaction might get stuck ... forever (or, until saved by some of the tricks in <a href="05_0_Controlling_Bitcoin_Transactions.html">Chapter Five</a>).</p>
+</blockquote>
+<p>When you're using the simple and automated methods for creating transactions, as outlined here and in <a href="04_5_Sending_Coins_with_Automated_Raw_Transactions.html">§4.5: Sending Coins with Automated Raw Transactions</a>, Bitcoin will calculate transaction fees for you. This is done using Floating Fees, where the <code>bitcoind</code> watches how long transactions are taking to confirm and automatically calculates for you what to spend.</p>
+<p>You can help control this by putting rational values into your <code>~/.bitcoin/bitcoin.conf</code>. The following low-cost values would ensure that there was a minimum transaction fee of 10,000 satoshis per kByte of data in your transaction and request that the floating fees figure out a good amount to get your transaction somewhere into the next six blocks.</p>
+<pre><code>mintxfee=0.0001
+txconfirmtarget=6
+</code></pre>
+<p>However, under the theory that you don't want to wait around while working on a tutorial, we've adopted the following higher values:</p>
+<pre><code>mintxfee=0.001
+txconfirmtarget=1
+</code></pre>
+<p>You should enter these into <code>~/.bitcoin/bitcoin.conf</code>, in the main section, toward the top of the file or if you want to be sure you never use it elsewhere, under the <code>[test]</code> section.</p>
+<p>In order to get through this tutorial, we're willing to spend 100,000 satoshis per kB on every transaction (about $10!), and we want to get each transaction into the next block! (To put that in perspective, a typical transaction runs between .25 kB and 1 kB, so you'll actually be paying more like $2.50 than $10 ... if this were real money.)</p>
+<p>After you've edited your bitcoin.conf file, you'll want to kill and restart bitcoind.</p>
+<pre><code>$ bitcoin-cli stop
+$ bitcoind -daemon
+</code></pre>
+<h2 id="get-an-address"><a class="header" href="#get-an-address">Get an Address</a></h2>
+<p>You need somewhere to send your coins to. Usually, someone would send you an address, and perhaps give you a signature to prove they own that address. Alternatively, they might give you a QR code to scan, so that you can't make mistakes when typing in the address. In our case, we're going to send coins to <code>n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi</code>, which is a return address for an old Tesetnet faucet.</p>
+<blockquote>
+<p>:book: <em><strong>What is a QR code?</strong></em> A QR code is just an encoding of a Bitcoin address. Many wallets will generate QR codes for you, while some sites will convert from an address to a QR code. Obviously, you should only accept a QR code from a site that you absolutely trust. A payer can use a bar-code scanner to read in the QR code, then pay to it.</p>
+</blockquote>
+<h2 id="send-the-coins"><a class="header" href="#send-the-coins">Send the Coins</a></h2>
+<p>You're now ready to send some coins. This is actually quite simple via the command line. You just use <code>bitcoin-cli sendtoaddress [address] [amount]</code>. So, to send a little coinage to the address <code>n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi</code> just requires:</p>
+<pre><code>$ txid=$(bitcoin-cli sendtoaddress n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi 0.001)
+$ echo $txid
+93250d0cacb0361b8e21030ac65bc4c2159a53de1075425d800b2d7a8ab13ba8
+</code></pre>
+<blockquote>
+<p>🙏 To help keep testnet faucets alive, try to use the return address of the same faucet you used in the previous chapter on receiving transactions. </p>
+</blockquote>
+<p>Make sure the address you write in is where you want the money to go. Make <em>double</em> sure. If you make mistakes in Bitcoin, there's no going back.</p>
+<p>You'll receive a txid back when you issue this command.</p>
+<blockquote>
+<p>❕ You may end up with an error code if you don't have enough funds in your wallet to send the transaction. Depending on your current balance <code>bitcoin-cli getbalance</code> you may need to adjust the amount to be sent to account for the amount being sent along with the transaction fee. If your current balance is 0.001, then you could try sending 0.0001. Alternatively, it would be better to instead subtract the expected fee given in the error message from your current balance. This is good practice as many wallets expect you to calculate your own amount + fees when withdrawing, even among popular exchanges. </p>
+</blockquote>
+<blockquote>
+<p>:warning: <strong>WARNING:</strong> The <code>bitcoin-cli</code> command actually generates JSON-RPC commands when it's talking to the bitcoind. They can be really picky. This is an example: if you list the bitcoin amount without the leading zero (i.e. &quot;.1&quot; instead of &quot;0.1&quot;), then bitcoin-cli will fail with a mysterious message.</p>
+</blockquote>
+<blockquote>
+<p>:warning: <strong>WARNING:</strong> Even if you're careful with your inputs, you could see &quot;Fee estimation failed. Fallbackfee is disabled.&quot; Fundamentally, this means that your local <code>bitcoind</code> doesn't have enough information to estimate fees. You should really never see it if you've waited for your blockchain to sync and set up your system with Bitcoin Standup. But if you're not entirely synced, you may see this. It also could be that you're not using a standard <code>bitcoin.conf</code>: the entry <code>blocksonly=1</code> will cause your <code>bitcoind</code> to be unable to estimate fees.</p>
+</blockquote>
+<h2 id="examine-your-transaction"><a class="header" href="#examine-your-transaction">Examine Your Transaction</a></h2>
+<p>You can look at your transaction using your transaction id:</p>
+<pre><code>{
+  &quot;amount&quot;: -0.00100000,
+  &quot;fee&quot;: -0.00022200,
+  &quot;confirmations&quot;: 0,
+  &quot;trusted&quot;: true,
+  &quot;txid&quot;: &quot;93250d0cacb0361b8e21030ac65bc4c2159a53de1075425d800b2d7a8ab13ba8&quot;,
+  &quot;walletconflicts&quot;: [
+  ],
+  &quot;time&quot;: 1592604194,
+  &quot;timereceived&quot;: 1592604194,
+  &quot;bip125-replaceable&quot;: &quot;no&quot;,
+  &quot;details&quot;: [
+    {
+      &quot;address&quot;: &quot;n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi&quot;,
+      &quot;category&quot;: &quot;send&quot;,
+      &quot;amount&quot;: -0.00100000,
+      &quot;vout&quot;: 1,
+      &quot;fee&quot;: -0.00022200,
+      &quot;abandoned&quot;: false
+    }
+  ],
+  &quot;hex&quot;: &quot;0200000001e982921bb0189afc486e20bb05cc5825c71a0ba8868043ed04ece9ab0cb12a8e010000006a47304402200fc493a01c5c9d9574f7c321cee6880f7f1df847be71039e2d996f7f75c17b3d02203057f5baa48745ba7ab5f1d4eed11585bd8beab838b1ca03a4138516fe52b3b8012102fd5740996d853ea51a6904cf03257fc11204b0179f344c49739ec5b20b39c9bafeffffff02e8640d0000000000160014d37b6ae4a917bcc873f6395741155f565e2dc7c4a0860100000000001976a914e7c1345fc8f87c68170b3aa798a956c2fe6a9eff88ac780b1b00&quot;
+}
+</code></pre>
+<p>You can see not only the amount transferred (.001 BTC) but also a transaction fee (.000222 BTC), which is about a quarter of the .001 BTC/kB minimum fee that was set, which suggests that the transaction was about a quarter of a kB in size.</p>
+<p>While you are waiting for this transaction to clear, you'll note that <code>bitcoin-cli getbalance</code> shows that all of your money is gone (or, at least, all of your money from a single incoming transaction). Similarly, <code>bitcoin-cli listunspent</code> will show that an entire transaction is gone, even if it was more than what you wanted to send. There's a reason for this: whenever you get money in, you have to send it <em>all</em> out together, and you have to perform some gymnastics if you actually want to keep some of it! Once again, <code>sendtoaddress</code> takes care of this all for you, which means you don't have to worry about making change until you send a raw transaction. In this case, a new transaction will appear with your change when your spend is incorporated into a block.</p>
+<h2 id="summary-sending-coins-the-easy-way"><a class="header" href="#summary-sending-coins-the-easy-way">Summary: Sending Coins the Easy Way</a></h2>
+<p>To send coins the easy way, make sure your transaction defaults are rationale, get an address, and send coins there. That's why they call it easy!</p>
+<blockquote>
+<p>:fire: <em><strong>What is the power of sending coins the easy way?</strong></em></p>
+</blockquote>
+<blockquote>
+<p><em>The advantages.</em> It's easy. You don't have to worry about arcane things like UTXOs. You don't have to calculate transaction fees by hand, so you're not likely to make mistakes that cost you large amounts of money. If your sole goal is to sit down at your computer and send some money, this is the way to go.</p>
+</blockquote>
+<blockquote>
+<p><em>The disadvantages.</em> It's high level. You have very little control over what's happening, and you can't do anything fancy. If you're planning to write more complex Bitcoin software or want a deeper understanding of how Bitcoin works, then the easy way is just a dull diversion before you get to the real stuff.</p>
+</blockquote>
+<h2 id="whats-next"><a class="header" href="#whats-next">What's Next?</a></h2>
+<p>Continue &quot;Sending Bitcoin Transactions&quot; with <a href="04_2_Creating_a_Raw_Transaction.html">§4.2 Creating a Raw Transaction</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="04_0_Sending_Bitcoin_Transactions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="04_2__Interlude_Using_JQ.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="04_0_Sending_Bitcoin_Transactions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="04_2__Interlude_Using_JQ.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

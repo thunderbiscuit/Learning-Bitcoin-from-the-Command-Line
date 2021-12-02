@@ -1,0 +1,488 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Knowing your Bitcoin Setup - Learning Bitcoin from the Command Line</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="01_0_Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01_1_Introducing_Bitcoin.html"><strong aria-hidden="true">1.1.</strong> Introducing Bitcoin</a></li></ol></li><li class="chapter-item expanded "><a href="02_0_Setting_Up_a_Bitcoin-Core_VPS.html"><strong aria-hidden="true">2.</strong> Setting Up a Bitcoin Core VPS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_1_Setting_Up_a_Bitcoin-Core_VPS_with_StackScript.html"><strong aria-hidden="true">2.1.</strong> With Bitcoin Standup</a></li><li class="chapter-item expanded "><a href="02_2_Setting_Up_Bitcoin_Core_Other.html"><strong aria-hidden="true">2.2.</strong> Via Other Means</a></li></ol></li><li class="chapter-item expanded "><a href="03_0_Understanding_Your_Bitcoin_Setup.html"><strong aria-hidden="true">3.</strong> Understanding your Bitcoin Setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="03_1_Verifying_Your_Bitcoin_Setup.html"><strong aria-hidden="true">3.1.</strong> Verifying your Bitcoin Setup</a></li><li class="chapter-item expanded "><a href="03_2_Knowing_Your_Bitcoin_Setup.html" class="active"><strong aria-hidden="true">3.2.</strong> Knowing your Bitcoin Setup</a></li><li class="chapter-item expanded "><a href="03_3__Interlude_Using_Command-Line_Variables.html"><strong aria-hidden="true">3.3.</strong> Interlude: Using Command-Line Variables</a></li><li class="chapter-item expanded "><a href="03_3_Setting_Up_Your_Wallet.html"><strong aria-hidden="true">3.4.</strong> Setting Up Your Wallet</a></li><li class="chapter-item expanded "><a href="03_4_Receiving_a_Transaction.html"><strong aria-hidden="true">3.5.</strong> Receiving a Transaction</a></li><li class="chapter-item expanded "><a href="03_5_Understanding_the_Descriptor.html"><strong aria-hidden="true">3.6.</strong> Understanding the Descriptor</a></li></ol></li><li class="chapter-item expanded "><a href="04_0_Sending_Bitcoin_Transactions.html"><strong aria-hidden="true">4.</strong> Sending Bitcoin Transactions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04_1_Sending_Coins_The_Easy_Way.html"><strong aria-hidden="true">4.1.</strong> Sending Coins the Easy Way</a></li><li class="chapter-item expanded "><a href="04_2__Interlude_Using_JQ.html"><strong aria-hidden="true">4.2.</strong> Interlude: Using JQ</a></li><li class="chapter-item expanded "><a href="04_2_Creating_a_Raw_Transaction.html"><strong aria-hidden="true">4.3.</strong> Creating a Raw Transaction</a></li><li class="chapter-item expanded "><a href="04_3_Creating_a_Raw_Transaction_with_Named_Arguments.html"><strong aria-hidden="true">4.4.</strong> Creating a Raw Transaction With Named Arguments</a></li><li class="chapter-item expanded "><a href="04_4__Interlude_Using_Curl.html"><strong aria-hidden="true">4.5.</strong> Interlude: Using Curl</a></li><li class="chapter-item expanded "><a href="04_4_Sending_Coins_with_a_Raw_Transaction.html"><strong aria-hidden="true">4.6.</strong> Sending Coins with Raw Transactions</a></li><li class="chapter-item expanded "><a href="04_5_Sending_Coins_with_Automated_Raw_Transactions.html"><strong aria-hidden="true">4.7.</strong> Sending Coins with Automated Raw Transactions</a></li><li class="chapter-item expanded "><a href="04_6_Creating_a_Segwit_Transaction.html"><strong aria-hidden="true">4.8.</strong> Creating a Segwit Transaction</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Bitcoin from the Command Line</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="32-knowing-your-bitcoin-setup"><a class="header" href="#32-knowing-your-bitcoin-setup">3.2: Knowing Your Bitcoin Setup</a></h1>
+<p>Before you start playing with Bitcoin, you may always want to come to a better understanding of your setup.</p>
+<h2 id="know-your-bitcoin-directory"><a class="header" href="#know-your-bitcoin-directory">Know Your Bitcoin Directory</a></h2>
+<p>To start with, you should understand where everything is kept: the <code>~/.bitcoin</code> directory.</p>
+<p>The main directory just contains your config file and the testnet directory:</p>
+<pre><code>$ ls ~/.bitcoin
+bitcoin.conf  testnet3
+</code></pre>
+<p>The setup guides in <a href="02_0_Setting_Up_a_Bitcoin-Core_VPS.html">Chapter Two: Creating a Bitcoin-Core VPS</a> laid out a standardized config file. <a href="03_1_Verifying_Your_Bitcoin_Setup.html">§3.1: Verifying Your Bitcoin Setup</a> suggested how to change it to support more advanced setups. If you're interested in learning even more about the config file, you may wish to consult <a href="https://jlopp.github.io/bitcoin-core-config-generator/">Jameson Lopp's Bitcoin Core Config Generator</a>.</p>
+<p>Moving back to your ~/.bitcoin directory, you'll find that the testnet3 directory contains all of the guts:</p>
+<pre><code>$ ls ~/.bitcoin/testnet3
+banlist.dat   blocks	  debug.log	     mempool.dat	peers.dat
+bitcoind.pid  chainstate  fee_estimates.dat  onion_private_key	wallets
+</code></pre>
+<p>You shouldn't mess with most of these files and directories — particularly not the <code>blocks</code> and <code>chainstate</code> directories, which contain all of the blockchain data, and the information in your <code>wallets</code> directory, which contains your personal wallet. However, do take careful note of the <code>debug.log</code> file, which you should refer to if you ever have problems with your setup.</p>
+<blockquote>
+<p>:link: <strong>TESTNET vs MAINNET:</strong> If you're using mainnet, then <em>everything</em> will instead be placed in the main <code>~/.bitcoin</code> directory. These various setups <em>do</em> elegantly stack, so if you are using mainnet, testnet, and regtest, you'll find that <code>~/.bitcoin</code> contains your config file and your mainnet data, the <code>~/.bitcoin/testnet3</code> directory contains your testnet data, and the <code>~/.bitcoin/regtest</code> directory contains your regtest data.</p>
+</blockquote>
+<h2 id="know-your-bitcoin-cli-commands"><a class="header" href="#know-your-bitcoin-cli-commands">Know Your Bitcoin-cli Commands</a></h2>
+<p>Most of your early work will be done with the <code>bitcoin-cli</code> command, which offers an easy interface to <code>bitcoind</code>. If you ever want more information on its usage, just run it with the <code>help</code> argument. Without any other arguments, it shows you every possible command:</p>
+<pre><code>$ bitcoin-cli help
+== Blockchain ==
+getbestblockhash
+getblock &quot;blockhash&quot; ( verbosity )
+getblockchaininfo
+getblockcount
+getblockfilter &quot;blockhash&quot; ( &quot;filtertype&quot; )
+getblockhash height
+getblockheader &quot;blockhash&quot; ( verbose )
+getblockstats hash_or_height ( stats )
+getchaintips
+getchaintxstats ( nblocks &quot;blockhash&quot; )
+getdifficulty
+getmempoolancestors &quot;txid&quot; ( verbose )
+getmempooldescendants &quot;txid&quot; ( verbose )
+getmempoolentry &quot;txid&quot;
+getmempoolinfo
+getrawmempool ( verbose )
+gettxout &quot;txid&quot; n ( include_mempool )
+gettxoutproof [&quot;txid&quot;,...] ( &quot;blockhash&quot; )
+gettxoutsetinfo
+preciousblock &quot;blockhash&quot;
+pruneblockchain height
+savemempool
+scantxoutset &quot;action&quot; ( [scanobjects,...] )
+verifychain ( checklevel nblocks )
+verifytxoutproof &quot;proof&quot;
+
+== Control ==
+getmemoryinfo ( &quot;mode&quot; )
+getrpcinfo
+help ( &quot;command&quot; )
+logging ( [&quot;include_category&quot;,...] [&quot;exclude_category&quot;,...] )
+stop
+uptime
+
+== Generating ==
+generatetoaddress nblocks &quot;address&quot; ( maxtries )
+generatetodescriptor num_blocks &quot;descriptor&quot; ( maxtries )
+
+== Mining ==
+getblocktemplate ( &quot;template_request&quot; )
+getmininginfo
+getnetworkhashps ( nblocks height )
+prioritisetransaction &quot;txid&quot; ( dummy ) fee_delta
+submitblock &quot;hexdata&quot; ( &quot;dummy&quot; )
+submitheader &quot;hexdata&quot;
+
+== Network ==
+addnode &quot;node&quot; &quot;command&quot;
+clearbanned
+disconnectnode ( &quot;address&quot; nodeid )
+getaddednodeinfo ( &quot;node&quot; )
+getconnectioncount
+getnettotals
+getnetworkinfo
+getnodeaddresses ( count )
+getpeerinfo
+listbanned
+ping
+setban &quot;subnet&quot; &quot;command&quot; ( bantime absolute )
+setnetworkactive state
+
+== Rawtransactions ==
+analyzepsbt &quot;psbt&quot;
+combinepsbt [&quot;psbt&quot;,...]
+combinerawtransaction [&quot;hexstring&quot;,...]
+converttopsbt &quot;hexstring&quot; ( permitsigdata iswitness )
+createpsbt [{&quot;txid&quot;:&quot;hex&quot;,&quot;vout&quot;:n,&quot;sequence&quot;:n},...] [{&quot;address&quot;:amount},{&quot;data&quot;:&quot;hex&quot;},...] ( locktime replaceable )
+createrawtransaction [{&quot;txid&quot;:&quot;hex&quot;,&quot;vout&quot;:n,&quot;sequence&quot;:n},...] [{&quot;address&quot;:amount},{&quot;data&quot;:&quot;hex&quot;},...] ( locktime replaceable )
+decodepsbt &quot;psbt&quot;
+decoderawtransaction &quot;hexstring&quot; ( iswitness )
+decodescript &quot;hexstring&quot;
+finalizepsbt &quot;psbt&quot; ( extract )
+fundrawtransaction &quot;hexstring&quot; ( options iswitness )
+getrawtransaction &quot;txid&quot; ( verbose &quot;blockhash&quot; )
+joinpsbts [&quot;psbt&quot;,...]
+sendrawtransaction &quot;hexstring&quot; ( maxfeerate )
+signrawtransactionwithkey &quot;hexstring&quot; [&quot;privatekey&quot;,...] ( [{&quot;txid&quot;:&quot;hex&quot;,&quot;vout&quot;:n,&quot;scriptPubKey&quot;:&quot;hex&quot;,&quot;redeemScript&quot;:&quot;hex&quot;,&quot;witnessScript&quot;:&quot;hex&quot;,&quot;amount&quot;:amount},...] &quot;sighashtype&quot; )
+testmempoolaccept [&quot;rawtx&quot;,...] ( maxfeerate )
+utxoupdatepsbt &quot;psbt&quot; ( [&quot;&quot;,{&quot;desc&quot;:&quot;str&quot;,&quot;range&quot;:n or [n,n]},...] )
+
+== Util ==
+createmultisig nrequired [&quot;key&quot;,...] ( &quot;address_type&quot; )
+deriveaddresses &quot;descriptor&quot; ( range )
+estimatesmartfee conf_target ( &quot;estimate_mode&quot; )
+getdescriptorinfo &quot;descriptor&quot;
+signmessagewithprivkey &quot;privkey&quot; &quot;message&quot;
+validateaddress &quot;address&quot;
+verifymessage &quot;address&quot; &quot;signature&quot; &quot;message&quot;
+
+== Wallet ==
+abandontransaction &quot;txid&quot;
+abortrescan
+addmultisigaddress nrequired [&quot;key&quot;,...] ( &quot;label&quot; &quot;address_type&quot; )
+backupwallet &quot;destination&quot;
+bumpfee &quot;txid&quot; ( options )
+createwallet &quot;wallet_name&quot; ( disable_private_keys blank &quot;passphrase&quot; avoid_reuse )
+dumpprivkey &quot;address&quot;
+dumpwallet &quot;filename&quot;
+encryptwallet &quot;passphrase&quot;
+getaddressesbylabel &quot;label&quot;
+getaddressinfo &quot;address&quot;
+getbalance ( &quot;dummy&quot; minconf include_watchonly avoid_reuse )
+getbalances
+getnewaddress ( &quot;label&quot; &quot;address_type&quot; )
+getrawchangeaddress ( &quot;address_type&quot; )
+getreceivedbyaddress &quot;address&quot; ( minconf )
+getreceivedbylabel &quot;label&quot; ( minconf )
+gettransaction &quot;txid&quot; ( include_watchonly verbose )
+getunconfirmedbalance
+getwalletinfo
+importaddress &quot;address&quot; ( &quot;label&quot; rescan p2sh )
+importmulti &quot;requests&quot; ( &quot;options&quot; )
+importprivkey &quot;privkey&quot; ( &quot;label&quot; rescan )
+importprunedfunds &quot;rawtransaction&quot; &quot;txoutproof&quot;
+importpubkey &quot;pubkey&quot; ( &quot;label&quot; rescan )
+importwallet &quot;filename&quot;
+keypoolrefill ( newsize )
+listaddressgroupings
+listlabels ( &quot;purpose&quot; )
+listlockunspent
+listreceivedbyaddress ( minconf include_empty include_watchonly &quot;address_filter&quot; )
+listreceivedbylabel ( minconf include_empty include_watchonly )
+listsinceblock ( &quot;blockhash&quot; target_confirmations include_watchonly include_removed )
+listtransactions ( &quot;label&quot; count skip include_watchonly )
+listunspent ( minconf maxconf [&quot;address&quot;,...] include_unsafe query_options )
+listwalletdir
+listwallets
+loadwallet &quot;filename&quot;
+lockunspent unlock ( [{&quot;txid&quot;:&quot;hex&quot;,&quot;vout&quot;:n},...] )
+removeprunedfunds &quot;txid&quot;
+rescanblockchain ( start_height stop_height )
+sendmany &quot;&quot; {&quot;address&quot;:amount} ( minconf &quot;comment&quot; [&quot;address&quot;,...] replaceable conf_target &quot;estimate_mode&quot; )
+sendtoaddress &quot;address&quot; amount ( &quot;comment&quot; &quot;comment_to&quot; subtractfeefromamount replaceable conf_target &quot;estimate_mode&quot; avoid_reuse )
+sethdseed ( newkeypool &quot;seed&quot; )
+setlabel &quot;address&quot; &quot;label&quot;
+settxfee amount
+setwalletflag &quot;flag&quot; ( value )
+signmessage &quot;address&quot; &quot;message&quot;
+signrawtransactionwithwallet &quot;hexstring&quot; ( [{&quot;txid&quot;:&quot;hex&quot;,&quot;vout&quot;:n,&quot;scriptPubKey&quot;:&quot;hex&quot;,&quot;redeemScript&quot;:&quot;hex&quot;,&quot;witnessScript&quot;:&quot;hex&quot;,&quot;amount&quot;:amount},...] &quot;sighashtype&quot; )
+unloadwallet ( &quot;wallet_name&quot; )
+walletcreatefundedpsbt [{&quot;txid&quot;:&quot;hex&quot;,&quot;vout&quot;:n,&quot;sequence&quot;:n},...] [{&quot;address&quot;:amount},{&quot;data&quot;:&quot;hex&quot;},...] ( locktime options bip32derivs )
+walletlock
+walletpassphrase &quot;passphrase&quot; timeout
+walletpassphrasechange &quot;oldpassphrase&quot; &quot;newpassphrase&quot;
+walletprocesspsbt &quot;psbt&quot; ( sign &quot;sighashtype&quot; bip32derivs )
+
+== Zmq ==
+getzmqnotifications
+</code></pre>
+<p>You can also type <code>bitcoin-cli help [command]</code> to get even more extensive info on that command. For example:</p>
+<pre><code>$ bitcoin-cli help getmininginfo
+...
+Returns a json object containing mining-related information.
+Result:
+{                              (json object)
+  &quot;blocks&quot; : n,                (numeric) The current block
+  &quot;currentblockweight&quot; : n,    (numeric, optional) The block weight of the last assembled block (only present if a block was ever assembled)
+  &quot;currentblocktx&quot; : n,        (numeric, optional) The number of block transactions of the last assembled block (only present if a block was ever assembled)
+  &quot;difficulty&quot; : n,            (numeric) The current difficulty
+  &quot;networkhashps&quot; : n,         (numeric) The network hashes per second
+  &quot;pooledtx&quot; : n,              (numeric) The size of the mempool
+  &quot;chain&quot; : &quot;str&quot;,             (string) current network name (main, test, regtest)
+  &quot;warnings&quot; : &quot;str&quot;           (string) any network and blockchain warnings
+}
+
+Examples:
+&gt; bitcoin-cli getmininginfo
+&gt; curl --user myusername --data-binary '{&quot;jsonrpc&quot;: &quot;1.0&quot;, &quot;id&quot;: &quot;curltest&quot;, &quot;method&quot;: &quot;getmininginfo&quot;, &quot;params&quot;: []}' -H 'content-type: text/plain;' http://127.0.0.1:8332/
+</code></pre>
+<blockquote>
+<p>:book: <em><strong>What is RPC?</strong></em> <code>bitcoin-cli</code> is just a handy interface that lets you send commands to the <code>bitcoind</code>. More specifically, it's an interface that lets you send RPC (or Remote Procedure Protocol) commands to the <code>bitcoind</code>. Often, the <code>bitcoin-cli</code> command and the RPC command have identical names and interfaces, but some <code>bitcoin-cli</code> commands instead provide shortcuts for more complex RPC requests. Generally, the <code>bitcoin-cli</code> interface is much cleaner and simpler than trying to send RPC commands by hand, using <code>curl</code> or some other method. However, it also has limitations as to what you can ultimately do.</p>
+</blockquote>
+<h2 id="optional-know-your-bitcoin-info"><a class="header" href="#optional-know-your-bitcoin-info">Optional: Know Your Bitcoin Info</a></h2>
+<p>A variety of bitcoin-cli commands can give you additional information on your bitcoin data. The most general ones are:</p>
+<p><code>bitcoin-cli -getinfo</code> returns information from different RPCs (user-friendly)</p>
+<pre><code class="language-diff">$ bitcoin-cli -getinfo
+
+! Chain: test
+Blocks: 1977694
+Headers: 1977694
+Verification progress: 0.9999993275374796
+Difficulty: 1
+
++ Network: in 0, out 8, total 8
+Version: 219900
+Time offset (s): 0
+Proxy: N/A
+Min tx relay fee rate (BTC/kvB): 0.00001000
+
+@@ Wallet: &quot;&quot;@@
+Keypool size: 1000
+Unlocked until: 0
+Transaction fee rate (-paytxfee) (BTC/kvB): 0.00000000
+
+# Balance: 0.02853102
+
+- Warnings: unknown new rules activated (versionbit 28)
+
+</code></pre>
+<p>Other commands to get information about blockchain, mining, network, wallet etc.</p>
+<pre><code>$ bitcoin-cli getblockchaininfo
+$ bitcoin-cli getmininginfo
+$ bitcoin-cli getnetworkinfo
+$ bitcoin-cli getnettotals
+$ bitcoin-cli getwalletinfo
+</code></pre>
+<p>For example <code>bitcoin-cli getnetworkinfo</code> gives you a variety of information on your setup and its access to various networks:</p>
+<pre><code>$ bitcoin-cli getnetworkinfo
+{
+  &quot;version&quot;: 200000,
+  &quot;subversion&quot;: &quot;/Satoshi:0.20.0/&quot;,
+  &quot;protocolversion&quot;: 70015,
+  &quot;localservices&quot;: &quot;0000000000000408&quot;,
+  &quot;localservicesnames&quot;: [
+    &quot;WITNESS&quot;,
+    &quot;NETWORK_LIMITED&quot;
+  ],
+  &quot;localrelay&quot;: true,
+  &quot;timeoffset&quot;: 0,
+  &quot;networkactive&quot;: true,
+  &quot;connections&quot;: 10,
+  &quot;networks&quot;: [
+    {
+      &quot;name&quot;: &quot;ipv4&quot;,
+      &quot;limited&quot;: false,
+      &quot;reachable&quot;: true,
+      &quot;proxy&quot;: &quot;&quot;,
+      &quot;proxy_randomize_credentials&quot;: false
+    },
+    {
+      &quot;name&quot;: &quot;ipv6&quot;,
+      &quot;limited&quot;: false,
+      &quot;reachable&quot;: true,
+      &quot;proxy&quot;: &quot;&quot;,
+      &quot;proxy_randomize_credentials&quot;: false
+    },
+    {
+      &quot;name&quot;: &quot;onion&quot;,
+      &quot;limited&quot;: false,
+      &quot;reachable&quot;: true,
+      &quot;proxy&quot;: &quot;127.0.0.1:9050&quot;,
+      &quot;proxy_randomize_credentials&quot;: true
+    }
+  ],
+  &quot;relayfee&quot;: 0.00001000,
+  &quot;incrementalfee&quot;: 0.00001000,
+  &quot;localaddresses&quot;: [
+    {
+      &quot;address&quot;: &quot;45.79.111.171&quot;,
+      &quot;port&quot;: 18333,
+      &quot;score&quot;: 1
+    },
+    {
+      &quot;address&quot;: &quot;2600:3c01::f03c:92ff:fecc:fdb7&quot;,
+      &quot;port&quot;: 18333,
+      &quot;score&quot;: 1
+    },
+    {
+      &quot;address&quot;: &quot;4wrr3ktm6gl4sojx.onion&quot;,
+      &quot;port&quot;: 18333,
+      &quot;score&quot;: 4
+    }
+  ],
+  &quot;warnings&quot;: &quot;Warning: unknown new rules activated (versionbit 28)&quot;
+}
+</code></pre>
+<p>Feel free to reference any of these and to use &quot;bitcoin-cli help&quot; if you want more information on what any of them do.</p>
+<h2 id="summary-knowing-your-bitcoin-setup"><a class="header" href="#summary-knowing-your-bitcoin-setup">Summary: Knowing Your Bitcoin Setup</a></h2>
+<p>The <code>~/.bitcoin</code> directory contains all of your files, while <code>bitcoin-cli help</code> and a variety of info commands can be used to get more information on how your setup and Bitcoin work.</p>
+<h2 id="whats-next"><a class="header" href="#whats-next">What's Next?</a></h2>
+<p>Continue &quot;Understanding Your Bitcoin Setup&quot; with <a href="03_3_Setting_Up_Your_Wallet.html">§3.3: Setting Up Your Wallet</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="03_1_Verifying_Your_Bitcoin_Setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="03_3__Interlude_Using_Command-Line_Variables.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="03_1_Verifying_Your_Bitcoin_Setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="03_3__Interlude_Using_Command-Line_Variables.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
